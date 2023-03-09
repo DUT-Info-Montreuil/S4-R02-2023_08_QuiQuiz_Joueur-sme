@@ -28,4 +28,19 @@ public class ServiceJoueurImpl implements IServicesJoueur {
         }
         return joueurR;
     }
+
+    @Override
+    public void supprimerJoueur(String pseudo) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void ajouterJoueur(JoueurDTO j) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    
 }

@@ -9,7 +9,7 @@ public interface IServicesJoueur {
     public List<JoueurDTO> listerJoueurs();
     public JoueurDTO transmettreInfoJoueur(String pseudo);
     public void supprimerJoueur(String pseudo);
-
+    public void ajouterJoueur(JoueurDTO j);
 
 
 }
