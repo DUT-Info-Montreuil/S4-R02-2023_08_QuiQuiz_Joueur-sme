@@ -30,15 +30,15 @@ public class ServiceJoueurImpl implements IServicesJoueur {
     }
 
     @Override
-    public void supprimerJoueur(String pseudo) {
+    public boolean supprimerJoueur(String pseudo) {
         // TODO Auto-generated method stub
-        
+        return false;
     }
 
     @Override
-    public void ajouterJoueur(JoueurDTO j) {
+    public boolean ajouterJoueur(JoueurDTO j) {
         // TODO Auto-generated method stub
-        
+        return false;
     }
 
 
