@@ -3,10 +3,15 @@ package fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.impl;
 import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.entities.dto.JoueurDTO;
 import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.modeles.IServicesJoueur;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceJoueurImpl implements IServicesJoueur {
     private List<JoueurDTO> listeJoeurs;
+
+    public ServiceJoueurImpl(){
+        this.listeJoeurs = new ArrayList<JoueurDTO>();
+    }
 
     @Override
     public List<JoueurDTO> listerJoueurs() {
