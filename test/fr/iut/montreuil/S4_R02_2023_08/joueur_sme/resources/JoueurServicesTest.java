@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.util.Date;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -43,6 +44,8 @@ public class JoueurServicesTest {
     @Test
     public void transmettreInfoJoueur() {
         when(serviceJoueur.transmettreInfoJoueur(j1.getPseudo())).thenReturn(j1);
+
+        assertEquals(serviceJoueur.transmettreInfoJoueur(j1.getPseudo()), j1);
     }
 }
 
