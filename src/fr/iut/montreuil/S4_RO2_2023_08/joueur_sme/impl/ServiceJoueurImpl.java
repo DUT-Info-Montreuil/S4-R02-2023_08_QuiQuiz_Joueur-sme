@@ -31,15 +31,22 @@ public class ServiceJoueurImpl implements IServicesJoueur {
 
     @Override
     public void supprimerJoueur(String pseudo) {
-        // TODO Auto-generated method stub
-        
+        JoueurDTO joueurASupprimer = null;
+        for(JoueurDTO joueur : this.listeJoeurs){
+            if(joueur.getPseudo().equals(pseudo)){
+                joueurASupprimer = joueur;
+            }
+        }
+        if(joueurASupprimer != null) {
+            this.listeJoeurs.remove(joueurASupprimer);
+        }
     }
 
     @Override
     public void ajouterJoueur(JoueurDTO j) {
-        // TODO Auto-generated method stub
-        
+        this.listeJoeurs.add(j);
     }
+
 
 
     
