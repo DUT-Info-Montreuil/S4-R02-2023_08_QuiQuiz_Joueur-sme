@@ -30,22 +30,34 @@ public class ServiceJoueurImpl implements IServicesJoueur {
     }
 
     @Override
-    public void supprimerJoueur(String pseudo) {
+    public boolean supprimerJoueur(String pseudo) {
         JoueurDTO joueurASupprimer = null;
-        for(JoueurDTO joueur : this.listeJoeurs){
-            if(joueur.getPseudo().equals(pseudo)){
+        
+        for (JoueurDTO joueur : listeJoeurs) {
+            if (joueur.getPseudo().equals(pseudo)) {
                 joueurASupprimer = joueur;
+                break;
             }
         }
-        if(joueurASupprimer != null) {
-            this.listeJoeurs.remove(joueurASupprimer);
+        if (joueurASupprimer != null) {
+            listeJoeurs.remove(joueurASupprimer);
             return true;
+        } else {
+            return false;
         }
     }
-
+    
+    
+    
     @Override
-    public void ajouterJoueur(JoueurDTO j) {
-        this.listeJoeurs.add(j);
+    public boolean ajouterJoueur(JoueurDTO j) {
+        if (j != null && !this.listeJoeurs.contains(j)) {
+            this.listeJoeurs.add(j);
+            return true;
+        }
+        return false;
+    }
+    
 
 
 
