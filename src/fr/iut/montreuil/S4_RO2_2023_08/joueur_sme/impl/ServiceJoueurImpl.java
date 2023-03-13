@@ -39,13 +39,14 @@ public class ServiceJoueurImpl implements IServicesJoueur {
         }
         if(joueurASupprimer != null) {
             this.listeJoeurs.remove(joueurASupprimer);
+            return true;
         }
     }
 
     @Override
     public void ajouterJoueur(JoueurDTO j) {
         this.listeJoeurs.add(j);
-    }
+
 
 
 
