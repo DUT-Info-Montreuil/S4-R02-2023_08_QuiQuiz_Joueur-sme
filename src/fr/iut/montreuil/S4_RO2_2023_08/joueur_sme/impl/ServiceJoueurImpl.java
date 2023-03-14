@@ -32,7 +32,7 @@ public class ServiceJoueurImpl implements IServicesJoueur {
     @Override
     public boolean supprimerJoueur(String pseudo) {
         JoueurDTO joueurASupprimer = null;
-        
+
         for (JoueurDTO joueur : listeJoeurs) {
             if (joueur.getPseudo().equals(pseudo)) {
                 joueurASupprimer = joueur;
@@ -46,21 +46,19 @@ public class ServiceJoueurImpl implements IServicesJoueur {
             return false;
         }
     }
-    
-    
-    
-    @Override
-    public boolean ajouterJoueur(JoueurDTO j) {
-        if (j != null && !this.listeJoeurs.contains(j)) {
-            this.listeJoeurs.add(j);
+
+    public boolean ajouterJoueur(String prenom, String pseudo, Date date, String centreInterets, String languePrefere) {
+        JoueurDTO joueur = new JoueurDTO(prenom, pseudo, date, centreInterets, languePrefere);
+        if (!joueurs.contains(joueur)) {
+            joueurs.add(joueur);
             return true;
         }
         return false;
     }
-    
 
 
 
 
-    
+
+
 }
