@@ -27,7 +27,7 @@ public class ServiceJoueurDoublonImpossibleMock implements IServicesJoueur {
     }
 
     @Override
-    public boolean ajouterJoueur(String prenom, String pseudo, Date date, String centreInterets, String languePrefere) {
+    public boolean ajouterJoueur(String prenom, String pseudo, int date, String centreInterets, String languePrefere) {
         if(listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).count()==0) {
             listeJoueurs.add(new JoueurDTO(prenom, pseudo, date, centreInterets, languePrefere));
             return true;

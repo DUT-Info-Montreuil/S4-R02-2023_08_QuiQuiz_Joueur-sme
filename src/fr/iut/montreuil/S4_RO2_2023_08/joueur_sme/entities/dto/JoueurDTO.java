@@ -7,14 +7,14 @@ public class JoueurDTO {
 
     private String prenom;
     private String pseudo;
-    private Date date;
+    private int anneeNaissance;
     private String centreInterets;
     private String languePrefere;
 
-    public JoueurDTO(String prenom, String pseudo, Date date, String centreInterets, String languePrefere) {
+    public JoueurDTO(String prenom, String pseudo, int date, String centreInterets, String languePrefere) {
         this.prenom = prenom;
         this.pseudo = pseudo;
-        this.date = date;
+        this.anneeNaissance = date;
         this.centreInterets = centreInterets;
         this.languePrefere = languePrefere;
     }
@@ -24,12 +24,12 @@ public class JoueurDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         JoueurDTO joueurDTO = (JoueurDTO) o;
-        return Objects.equals(prenom, joueurDTO.prenom) && Objects.equals(pseudo, joueurDTO.pseudo) && Objects.equals(date, joueurDTO.date) && Objects.equals(centreInterets, joueurDTO.centreInterets) && Objects.equals(languePrefere, joueurDTO.languePrefere);
+        return Objects.equals(prenom, joueurDTO.prenom) && Objects.equals(pseudo, joueurDTO.pseudo) && Objects.equals(anneeNaissance, joueurDTO.anneeNaissance) && Objects.equals(centreInterets, joueurDTO.centreInterets) && Objects.equals(languePrefere, joueurDTO.languePrefere);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(prenom, pseudo, date, centreInterets, languePrefere);
+        return Objects.hash(prenom, pseudo, anneeNaissance, centreInterets, languePrefere);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class JoueurDTO {
         return "JoueurDTO{" +
                 "prenom='" + prenom + '\'' +
                 ", pseudo='" + pseudo + '\'' +
-                ", date=" + date +
+                ", anneeNaissance=" + anneeNaissance +
                 ", centreInterets='" + centreInterets + '\'' +
                 ", languePrefere='" + languePrefere + '\'' +
                 '}';
@@ -51,8 +51,8 @@ public class JoueurDTO {
         this.pseudo = pseudo;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setAnneeNaissance(int anneeNaissance) {
+        this.anneeNaissance = anneeNaissance;
     }
 
     public void setCentreInterets(String centreInterets) {
@@ -71,8 +71,8 @@ public class JoueurDTO {
         return pseudo;
     }
 
-    public Date getDate() {
-        return date;
+    public int getAnneeNaissance() {
+        return anneeNaissance;
     }
 
     public String getCentreInterets() {

@@ -27,8 +27,8 @@ public class ServiceJoueurFieldNullKoMock implements IServicesJoueur {
     }
 
     @Override
-    public boolean ajouterJoueur(String prenom, String pseudo, Date date, String centreInterets, String languePrefere) {
-        if(pseudo!=null && date!=null && languePrefere!=null) {
+    public boolean ajouterJoueur(String prenom, String pseudo, int date, String centreInterets, String languePrefere) {
+        if(pseudo!=null && (date>=1960 && date<=2023) && languePrefere!=null) {
             listeJoueurs.add(new JoueurDTO(prenom, pseudo, date, centreInterets, languePrefere));
             return true;
         }

@@ -12,15 +12,15 @@ public class ServiceJoueurImplMockOk implements IServicesJoueur {
     @Override
     public List<JoueurDTO> listerJoueurs() {
         List<JoueurDTO> lj = new ArrayList<JoueurDTO>();
-        lj.add(new JoueurDTO("toto", "tot", new Date(25092015), "jeux", "fr"));
-        lj.add(new JoueurDTO("titi", "tit", new Date(25072015), "nourritures", "fr"));
-        lj.add(new JoueurDTO("tata", "tat", new Date(12012015), "danse", "en"));
+        lj.add(new JoueurDTO("toto", "tot", 2015, "jeux", "fr"));
+        lj.add(new JoueurDTO("titi", "tit", 2015, "nourritures", "fr"));
+        lj.add(new JoueurDTO("tata", "tat", 2015, "danse", "en"));
         return lj;
     }
 
     @Override
     public JoueurDTO transmettreInfoJoueur(String pseudo) {
-        JoueurDTO j = new JoueurDTO("Onur", pseudo, new Date(17072003), "langues, manger", "fr");
+        JoueurDTO j = new JoueurDTO("Onur", pseudo, 2003, "langues, manger", "fr");
         return j;
     }
 
@@ -30,7 +30,7 @@ public class ServiceJoueurImplMockOk implements IServicesJoueur {
     }
 
     @Override
-    public boolean ajouterJoueur(String prenom, String pseudo, Date date, String centreInterets, String languePrefere) {
+    public boolean ajouterJoueur(String prenom, String pseudo, int date, String centreInterets, String languePrefere) {
         return true;
     }
 }

@@ -34,7 +34,7 @@ public class ServiceJoueurJoueurInexistantMock implements IServicesJoueur {
     }
 
     @Override
-    public boolean ajouterJoueur(String prenom, String pseudo, Date date, String centreInterets, String languePrefere) {
+    public boolean ajouterJoueur(String prenom, String pseudo, int date, String centreInterets, String languePrefere) {
         listeJoueurs.add(new JoueurDTO(prenom, pseudo, date, centreInterets, languePrefere));
         return true;
     }

@@ -10,7 +10,7 @@ public interface IServicesJoueur {
     public List<JoueurDTO> listerJoueurs();
     public JoueurDTO transmettreInfoJoueur(String pseudo);
     public boolean supprimerJoueur(String pseudo);
-    public boolean ajouterJoueur(String prenom, String pseudo, Date date, String centreInterets, String languePrefere);
+    public boolean ajouterJoueur(String prenom, String pseudo, int date, String centreInterets, String languePrefere);
 
 
 }
