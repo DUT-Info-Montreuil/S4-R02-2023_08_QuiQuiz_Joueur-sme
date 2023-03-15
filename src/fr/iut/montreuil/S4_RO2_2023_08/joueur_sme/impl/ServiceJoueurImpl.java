@@ -51,7 +51,7 @@ public class ServiceJoueurImpl implements IServicesJoueur {
     @Override
     public boolean ajouterJoueur(String prenom, String pseudo, Date date, String centreInterets, String languePrefere) {
         JoueurDTO joueur = new JoueurDTO(prenom, pseudo, date, centreInterets, languePrefere);
-        if (!listeJoueurs.contains(joueur)) {
+        if (!listeJoueurs.contains(joueur) && pseudo!=null && date!=null && languePrefere!=null) {
             listeJoueurs.add(joueur);
             return true;
         }

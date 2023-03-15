@@ -7,30 +7,35 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ServiceJoueurImplMockOk implements IServicesJoueur {
+public class ServiceJoueurJoueurInexistantMock implements IServicesJoueur {
 
+    private List<JoueurDTO> listeJoueurs = new ArrayList<JoueurDTO>();
     @Override
     public List<JoueurDTO> listerJoueurs() {
-        List<JoueurDTO> lj = new ArrayList<JoueurDTO>();
-        lj.add(new JoueurDTO("toto", "tot", new Date(25092015), "jeux", "fr"));
-        lj.add(new JoueurDTO("titi", "tit", new Date(25072015), "nourritures", "fr"));
-        lj.add(new JoueurDTO("tata", "tat", new Date(12012015), "danse", "en"));
-        return lj;
+        return null;
     }
 
     @Override
     public JoueurDTO transmettreInfoJoueur(String pseudo) {
-        JoueurDTO j = new JoueurDTO("Onur", pseudo, new Date(17072003), "langues, manger", "fr");
-        return j;
+        if(listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).count()==0) {
+            System.out.println("Joueur Inexistant");
+            return null;
+        }
+        return listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).findAny().get();
     }
 
     @Override
     public boolean supprimerJoueur(String pseudo) {
+        if(listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).count()==0) {
+            System.out.println("Joueur Inexistant");
+            return false;
+        }
         return true;
     }
 
     @Override
     public boolean ajouterJoueur(String prenom, String pseudo, Date date, String centreInterets, String languePrefere) {
+        listeJoueurs.add(new JoueurDTO(prenom, pseudo, date, centreInterets, languePrefere));
         return true;
     }
 }

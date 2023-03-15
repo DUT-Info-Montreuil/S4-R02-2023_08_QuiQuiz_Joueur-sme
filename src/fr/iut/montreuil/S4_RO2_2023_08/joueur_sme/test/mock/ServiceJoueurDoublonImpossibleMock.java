@@ -7,30 +7,32 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ServiceJoueurImplMockOk implements IServicesJoueur {
+public class ServiceJoueurDoublonImpossibleMock implements IServicesJoueur {
+
+    private List<JoueurDTO> listeJoueurs = new ArrayList<>();
 
     @Override
     public List<JoueurDTO> listerJoueurs() {
-        List<JoueurDTO> lj = new ArrayList<JoueurDTO>();
-        lj.add(new JoueurDTO("toto", "tot", new Date(25092015), "jeux", "fr"));
-        lj.add(new JoueurDTO("titi", "tit", new Date(25072015), "nourritures", "fr"));
-        lj.add(new JoueurDTO("tata", "tat", new Date(12012015), "danse", "en"));
-        return lj;
+        return null;
     }
 
     @Override
     public JoueurDTO transmettreInfoJoueur(String pseudo) {
-        JoueurDTO j = new JoueurDTO("Onur", pseudo, new Date(17072003), "langues, manger", "fr");
-        return j;
+        return null;
     }
 
     @Override
     public boolean supprimerJoueur(String pseudo) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean ajouterJoueur(String prenom, String pseudo, Date date, String centreInterets, String languePrefere) {
-        return true;
+        if(listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).count()==0) {
+            listeJoueurs.add(new JoueurDTO(prenom, pseudo, date, centreInterets, languePrefere));
+            return true;
+        }
+        else
+            return false;
     }
 }
