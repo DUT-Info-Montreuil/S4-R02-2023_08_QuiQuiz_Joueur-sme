@@ -1,6 +1,7 @@
 package fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.impl;
 
 import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.entities.dto.JoueurDTO;
+import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.entities.dto.StatsDTO;
 import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.modeles.IServicesJoueur;
 
 import java.util.ArrayList;
@@ -58,9 +59,17 @@ public class ServiceJoueurImpl implements IServicesJoueur {
         return false;
     }
 
+    @Override
+    public boolean ajouterStats(String pseudo, int idQuestionnaire, int nbBonnesReponses, int nbQuestions, long temps) {
+//        listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).
+//        if(joueur.getPseudo()==pseudo) {
+//            joueur.getStatsParties().add(new StatsDTO(idQuestionnaire, nbBonnesReponses, nbQuestions, temps));
+//            return true;
+//        }
 
+        return false;
 
-
+    }
 
 
 }

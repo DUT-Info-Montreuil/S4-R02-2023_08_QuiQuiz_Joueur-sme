@@ -1,6 +1,8 @@
 package fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.entities.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class JoueurDTO {
@@ -10,6 +12,7 @@ public class JoueurDTO {
     private int anneeNaissance;
     private String centreInterets;
     private String languePrefere;
+    private List<StatsDTO> statsParties;
 
     public JoueurDTO(String prenom, String pseudo, int date, String centreInterets, String languePrefere) {
         this.prenom = prenom;
@@ -17,6 +20,7 @@ public class JoueurDTO {
         this.anneeNaissance = date;
         this.centreInterets = centreInterets;
         this.languePrefere = languePrefere;
+        this.statsParties = new ArrayList<StatsDTO>();
     }
 
     @Override
@@ -81,6 +85,14 @@ public class JoueurDTO {
 
     public String getLanguePrefere() {
         return languePrefere;
+    }
+
+    public List<StatsDTO> getStatsParties() {
+        return statsParties;
+    }
+
+    public void setStatsParties(List<StatsDTO> statsParties) {
+        this.statsParties = statsParties;
     }
 
 }
