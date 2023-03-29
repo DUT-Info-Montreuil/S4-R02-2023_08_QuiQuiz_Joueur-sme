@@ -12,6 +12,6 @@ public interface IServicesJoueur {
     public boolean supprimerJoueur(String pseudo);
     public boolean ajouterJoueur(String prenom, String pseudo, int date, String centreInterets, String languePrefere);
     public boolean ajouterStats(String pseudo, int idQuestionnaire, int nbBonnesReponses, int nbQuestions, long temps);
-
+    public boolean supprimerStats(String pseudo, int idQuestionnaire);
 
 }

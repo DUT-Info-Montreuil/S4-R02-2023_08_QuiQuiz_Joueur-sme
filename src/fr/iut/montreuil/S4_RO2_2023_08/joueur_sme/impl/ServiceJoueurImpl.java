@@ -5,7 +5,6 @@ import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.entities.dto.StatsDTO;
 import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.modeles.IServicesJoueur;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ServiceJoueurImpl implements IServicesJoueur {
@@ -61,15 +60,26 @@ public class ServiceJoueurImpl implements IServicesJoueur {
 
     @Override
     public boolean ajouterStats(String pseudo, int idQuestionnaire, int nbBonnesReponses, int nbQuestions, long temps) {
-//        listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).
-//        if(joueur.getPseudo()==pseudo) {
-//            joueur.getStatsParties().add(new StatsDTO(idQuestionnaire, nbBonnesReponses, nbQuestions, temps));
-//            return true;
-//        }
+        JoueurDTO joueur = listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).findFirst().get();
+        if(joueur!=null) {
+            joueur.getStatsParties().add(new StatsDTO(idQuestionnaire, nbBonnesReponses, nbQuestions, temps));
+            return true;
+        }
 
         return false;
-
     }
 
-
+    @Override
+    public boolean supprimerStats(String pseudo, int idQuestionnaire) {
+        JoueurDTO joueur = listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).findFirst().get();
+        if(joueur!=null) {
+            for(StatsDTO s : joueur.getStatsDTO()) {
+                if(s.getIdQuestionnaire == idQuestionnaire) {
+                    joueur.getStatsDTO().remove(s);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
 }
