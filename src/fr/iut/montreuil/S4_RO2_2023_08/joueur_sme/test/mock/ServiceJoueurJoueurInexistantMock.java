@@ -38,4 +38,14 @@ public class ServiceJoueurJoueurInexistantMock implements IServicesJoueur {
         listeJoueurs.add(new JoueurDTO(prenom, pseudo, date, centreInterets, languePrefere));
         return true;
     }
+
+    @Override
+    public boolean ajouterStats(String pseudo, int idQuestionnaire, int nbBonnesReponses, int nbQuestions, long temps) {
+        return false;
+    }
+
+    @Override
+    public boolean supprimerStats(String pseudo, int idQuestionnaire) {
+        return false;
+    }
 }

@@ -35,4 +35,14 @@ public class ServiceJoueurFieldNullKoMock implements IServicesJoueur {
         else
             return false;
     }
+
+    @Override
+    public boolean ajouterStats(String pseudo, int idQuestionnaire, int nbBonnesReponses, int nbQuestions, long temps) {
+        return false;
+    }
+
+    @Override
+    public boolean supprimerStats(String pseudo, int idQuestionnaire) {
+        return false;
+    }
 }

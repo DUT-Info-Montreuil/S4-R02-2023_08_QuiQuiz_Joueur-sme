@@ -33,4 +33,14 @@ public class ServiceJoueurImplMockOk implements IServicesJoueur {
     public boolean ajouterJoueur(String prenom, String pseudo, int date, String centreInterets, String languePrefere) {
         return true;
     }
+
+    @Override
+    public boolean ajouterStats(String pseudo, int idQuestionnaire, int nbBonnesReponses, int nbQuestions, long temps) {
+        return false;
+    }
+
+    @Override
+    public boolean supprimerStats(String pseudo, int idQuestionnaire) {
+        return false;
+    }
 }

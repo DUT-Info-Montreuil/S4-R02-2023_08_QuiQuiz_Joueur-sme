@@ -73,9 +73,9 @@ public class ServiceJoueurImpl implements IServicesJoueur {
     public boolean supprimerStats(String pseudo, int idQuestionnaire) {
         JoueurDTO joueur = listeJoueurs.stream().filter(x -> x.getPseudo()==pseudo).findFirst().get();
         if(joueur!=null) {
-            for(StatsDTO s : joueur.getStatsDTO()) {
-                if(s.getIdQuestionnaire == idQuestionnaire) {
-                    joueur.getStatsDTO().remove(s);
+            for(StatsDTO s : joueur.getStatsParties()) {
+                if(s.getIdQuestionnaire() == idQuestionnaire) {
+                    joueur.getStatsParties().remove(s);
                 }
                 return true;
             }
