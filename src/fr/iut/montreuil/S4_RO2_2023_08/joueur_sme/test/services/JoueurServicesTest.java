@@ -2,6 +2,8 @@ package fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.test.services;
 
 import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.impl.ServiceJoueurImpl;
 import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.modeles.IServicesJoueur;
+import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.test.mock.ServiceJoueurImplMockOk;
+
 import org.junit.Test;
 
 import fr.iut.montreuil.S4_RO2_2023_08.joueur_sme.entities.dto.JoueurDTO;
@@ -82,5 +84,77 @@ public class JoueurServicesTest {
 
         assertNull(serviceJoueurImplBeanTest.transmettreInfoJoueur("Onurum"));
     }
+
+    @Test
+    public void ajouterStatsOktest(){
+    serviceJoueurImplBeanTest = new ServiceJoueurMockAjoutStatsOk();
+
+    String pseudo = "pseudoTest";
+    int idQuestionnaire = 1;
+    int nbBonnesReponses = 8;
+    int nbQuestions = 10;
+    long temps = 12000;
+
+    when(serviceJoueurImplBeanTest.ajouterStats(pseudo, idQuestionnaire, nbBonnesReponses, nbQuestions, temps))
+            .thenReturn(true);
+
+    boolean result = serviceJoueurImplBeanTest.ajouterStats(pseudo, idQuestionnaire, nbBonnesReponses, nbQuestions, temps);
+
+    assertTrue(result);
+    }
+
+    @Test
+    public void ajouterStatsKoTest() {
+    serviceJoueurImplBeanTest = new ServiceJoueurMockAjoutStatsOK();
+
+    String pseudo = "pseudoTest";
+    int idQuestionnaire = 1;
+    int nbBonnesReponses = 8;
+    int nbQuestions = 10;
+    long temps = 12000;
+
+    when(serviceJoueurImplBeanTest.ajouterStats(pseudo, idQuestionnaire, nbBonnesReponses, nbQuestions, temps))
+            .thenReturn(false);
+
+    boolean result = serviceJoueurImplBeanTest.ajouterStats(pseudo, idQuestionnaire, nbBonnesReponses, nbQuestions, temps);
+
+    assertFalse(result);
+    }
+
+
+    @Test
+    public void supprimerStatsOkTest() {
+    serviceJoueurImplBeanTest = new ServiceJoueurMockSupprimerStatsOk();
+
+    String pseudo = "pseudoTest";
+    int idQuestionnaire = 1;
+
+    // On simule la suppression avec un return true
+    when(serviceJoueurImplBeanTest.supprimerStats(pseudo, idQuestionnaire)).thenReturn(true);
+
+    boolean result = serviceJoueurImplBeanTest.supprimerStats(pseudo, idQuestionnaire);
+
+    assertTrue(result);
+    }
+
+
+    @Test
+    public void supprimerStatsKoTest() {
+    serviceJoueurImplBeanTest = new ServiceJoueurMockSupprimerStatsOK();
+
+    String pseudo = "pseudoTest";
+    int idQuestionnaire = 1;
+
+    when(serviceJoueurImplBeanTest.supprimerStats(pseudo, idQuestionnaire))
+            .thenReturn(false);
+
+    boolean result = serviceJoueurImplBeanTest.supprimerStats(pseudo, idQuestionnaire);
+
+    assertFalse(result);
+}
+
+
+
+
 }
 
