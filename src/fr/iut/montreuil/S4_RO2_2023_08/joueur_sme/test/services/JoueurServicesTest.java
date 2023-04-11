@@ -95,8 +95,10 @@ public class JoueurServicesTest {
     int nbQuestions = 10;
     long temps = 12000;
 
+/*
     when(serviceJoueurImplBeanTest.ajouterStats(pseudo, idQuestionnaire, nbBonnesReponses, nbQuestions, temps))
             .thenReturn(true);
+*/
 
     boolean result = serviceJoueurImplBeanTest.ajouterStats(pseudo, idQuestionnaire, nbBonnesReponses, nbQuestions, temps);
 
@@ -113,8 +115,8 @@ public class JoueurServicesTest {
     int nbQuestions = 10;
     long temps = 12000;
 
-    when(serviceJoueurImplBeanTest.ajouterStats(pseudo, idQuestionnaire, nbBonnesReponses, nbQuestions, temps))
-            .thenReturn(false);
+/*    when(serviceJoueurImplBeanTest.ajouterStats(pseudo, idQuestionnaire, nbBonnesReponses, nbQuestions, temps))
+            .thenReturn(false);*/
 
     boolean result = serviceJoueurImplBeanTest.ajouterStats(pseudo, idQuestionnaire, nbBonnesReponses, nbQuestions, temps);
 
@@ -130,7 +132,9 @@ public class JoueurServicesTest {
     int idQuestionnaire = 1;
 
     // On simule la suppression avec un return true
+/*
     when(serviceJoueurImplBeanTest.supprimerStats(pseudo, idQuestionnaire)).thenReturn(true);
+*/
 
     boolean result = serviceJoueurImplBeanTest.supprimerStats(pseudo, idQuestionnaire);
 
@@ -145,8 +149,8 @@ public class JoueurServicesTest {
     String pseudo = "pseudoTest";
     int idQuestionnaire = 1;
 
-    when(serviceJoueurImplBeanTest.supprimerStats(pseudo, idQuestionnaire))
-            .thenReturn(false);
+/*    when(serviceJoueurImplBeanTest.supprimerStats(pseudo, idQuestionnaire))
+            .thenReturn(false);*/
 
     boolean result = serviceJoueurImplBeanTest.supprimerStats(pseudo, idQuestionnaire);
 
